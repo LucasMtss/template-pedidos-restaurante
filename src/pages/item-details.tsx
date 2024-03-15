@@ -93,9 +93,11 @@ export default function ItemDetails(){
                     ))
                 }
             </div>
-            <div className="p-5">
-                <Select isSearchable={ false } onChange={e => setSelectedIngredients(e as ISelectOptions[])} placeholder="Monte seu marmitex" isMulti options={options} />
-            </div>
+            {!product?.ingredients.length && (
+                <div className="p-5">
+                    <Select isSearchable={ false } onChange={e => setSelectedIngredients(e as ISelectOptions[])} placeholder="Monte seu marmitex" isMulti options={options} />
+                </div>
+            )}
 
             <div className="p-5 pb-8 gap-5 flex flex-col">
                 {!product?.ingredients.length && (
